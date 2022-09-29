@@ -1,0 +1,70 @@
+{% load otree %}
+{% load staticfiles %}
+
+{% block styles %}
+
+<style>
+
+    .cover {
+        width: 350px;
+        object-fit: cover;
+        margin-bottom: -7px;
+        }
+
+     table {
+        border: none;
+    }
+    table td {
+    border: none;
+    }
+
+    </style>
+
+{% endblock %}
+
+{% block title %}
+Practice question #2
+{% endblock %}
+
+{% block content %}
+<div class="frame">
+    <p>Suppose you observe the following die roll in a round:</p>
+
+    <table align="center" style="width: auto; margin: auto">
+        <tr><td><div class="frame-vid"><video autoplay muted> <source src="/static/{{ image_path }}" type="video/mp4">
+        </video></div></td></tr>
+    </table>
+    <br>
+
+    <table class="table" style="width: 75%;">
+        <tr>
+            <td style='text-align:left; vertical-align:middle'>How many points do you earn
+                for this round if you report a 3?</td>
+            <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                {{ formfield player.q4 }}
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td style='text-align:left; vertical-align:middle'>How many points do you earn
+                for this round if you report a 5?</td>
+            <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                {{ formfield player.q5 }}
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td style='text-align:left; vertical-align:middle'>How many points do you earn
+                for this round if you report a 6?</td>
+            <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                {{ formfield player.q6 }}
+            </div>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <div align="center" style="width: 90%; text-align: left;  margin: -20px 0px 0px 55px; padding: 0px 0px 0px 0px;">
+        <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,61 @@
+{{ block title }}
+Instructions
+{{ endblock }}
+{{ block content }}
+
+<style>
+    table {
+        border: none;
+    }
+    table td {
+    border: none;
+    }
+</style>
+
+<div class="frame">
+    <p> Both Participant A and Participant B worked on this counting task and earned a reward
+        of {{ Constants.endowment_dictator|cu }} points.
+        The difficulty of the task was however different for the two participants.
+        <strong>One of the participants had to count symbols in two times the number
+            of tables as the other participant, and hence worked harder.</strong>
+        Both participants know that one of them had to work harder, but don't know who.
+    </p>
+    <p>
+        Participant A now makes two decisions. They choose
+        how to distribute the reward between themself and Participant B,
+        if Participant A worked harder, and if Participant B worked harder.
+        Specifically, Participant A chooses a number of points between 0 and {{ Constants.endowment_dictator }}
+        to give to Participant B as the reward for Participant B's efforts in the counting task
+        and keeps the remaining points, conditional on who worked harder. Participant B also knows this.
+        Participant B makes <strong>no</strong> decisions.
+    </p>
+    <br>
+    <p>Please answer the example questions below to proceed.</p>
+    <ul>
+    <li>Suppose Participant A gives 400 reward points to Participant B.
+        <table class="table" style="width: 60%;">
+            <tr>
+                <td style='text-align:left; vertical-align:middle'>How many points does Participant A earn?</td>
+                <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                    {{ formfield player.ex1 }}
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td style='text-align:left; vertical-align:middle'>How many points does Participant B earn?</td>
+                <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                    {{ formfield player.ex2 }}
+                </div>
+                </td>
+            </tr>
+        </table>
+    </li>
+    </ul>
+</div>
+<br>
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+{{ endblock }}

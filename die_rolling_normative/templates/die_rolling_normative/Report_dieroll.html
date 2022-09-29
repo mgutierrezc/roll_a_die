@@ -1,0 +1,19 @@
+{% load otree %}
+
+
+
+{% block title %}
+   Report for Round #{{ subsession.round_number }}
+{% endblock %}
+
+{% block content %}
+<center>
+<div class="frame" style="width: 50%; padding: 40px 0px 0px 0px; margin: 0px">
+     {{ formfield player.reported_roll }}
+</div>
+    <br>
+                <div style="text-align: center;  margin: 10px 0px 10px 0px;">
+<button type="submit" class="btn btn-primary btn-large"><strong>{% if subsession.round_number == Constants.num_rounds %}NEXT {% else %}Round #{{ next_round }} {% endif %}</strong></button>
+                </div>
+</center>
+{% endblock %}

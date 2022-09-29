@@ -1,0 +1,65 @@
+{% load otree %}
+
+{% block styles %}
+
+<style>
+
+        th {
+            font-weight: normal;
+            padding: 0px 20px 15px 0px;
+            text-align: right;
+            vertical-align: center;
+        }
+
+         td {
+            font-weight: normal;
+            padding: 0px 10px 15px 10px;
+            vertical-align: center;
+         }
+
+    </style>
+
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<center>
+    <p>A Participant Y from our earlier study in this lab observed and reported die-rolls as shown in the table below:</p>
+
+    <div class="frame" style="text-align:center; vertical-align:middle; width: 100%; padding: 15px 0px 0px 0px; margin: 0px">
+        <table style="width: 50%; margin: auto;">
+            <tr>
+                <th>Round:</th>
+                {% for r in rounds %}
+                <td>#{{ r }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Participant Y observed:</th>
+                {% for r in observations %}
+                <td>
+                    <img style="width: 50px;" src="/static/{{ r }}">
+                </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Participant Y reported:</th>
+                {% for p in reports %}
+                <td>
+                    <img style="width: 50px;" src="/static/{{ p }}">
+                </td>
+                {% endfor %}
+            </tr>
+        </table>
+
+    </div>
+    <br>
+    <div style="width: 42%; padding: 5px 0px 0px 0px; font-weight: bold; text-align: justify; font-size: 15px; font-style: italic;">
+        <center><button  type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+    </div>
+</center>
+{% endblock %}
+

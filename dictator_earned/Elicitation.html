@@ -1,0 +1,129 @@
+{{ block title }}{{ endblock }}
+<style>
+table {
+    border:none;
+    border-collapse: collapse;
+}
+
+table td {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr {
+  border-bottom: 1pt solid black;
+}
+
+tr:nth-child(even) {background-color: #CCC;}
+</style>
+
+{{ block content }}
+    <p>
+        Participant A and Participant B have earned a reward of
+        {{ Constants.endowment_dictator|cu }} by working on the counting task.
+        One of them however had to work harder and count symbols in two times
+        the number of tables as the other participant. Participant A decides how to distribute the reward points.
+    </p>
+    <p>
+        Please indicate how socially appropriate or inappropriate you think
+        Participant A's action is in each of the possible scenarios below.
+    </p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th style="font-size: 20px;">If Participant A worked harder:</th>
+        <th style='text-align:center; vertical-align:middle'>Very <br> socially <br> inappropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Somewhat <br> socially <br> inappropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Somewhat <br> socially <br> appropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Very <br> socially <br> appropriate</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>{{ form.dg1a.label }}</td>
+        {{ for choice in form.dg1a }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+    <tr>
+        <td>{{ form.dg2a.label }}</td>
+        {{ for choice in form.dg2a }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+    <tr>
+        <td>{{ form.dg3a.label }}</td>
+        {{ for choice in form.dg3a }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+    <tr>
+        <td>{{ form.dg4a.label }}</td>
+        {{ for choice in form.dg4a }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+    <tr>
+        <td>{{ form.dg5a.label }}</td>
+        {{ for choice in form.dg5a }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+</table>
+
+<br>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th style="font-size: 20px;">If Participant B worked harder:</th>
+        <th style='text-align:center; vertical-align:middle'>Very <br> socially <br> inappropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Somewhat <br> socially <br> inappropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Somewhat <br> socially <br> appropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Very <br> socially <br> appropriate</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>{{ form.dg1b.label }}</td>
+        {{ for choice in form.dg1b }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+    <tr>
+        <td>{{ form.dg2b.label }}</td>
+        {{ for choice in form.dg2b }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+    <tr>
+        <td>{{ form.dg3b.label }}</td>
+        {{ for choice in form.dg3b }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+    <tr>
+        <td>{{ form.dg4b.label }}</td>
+        {{ for choice in form.dg4b }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+    <tr>
+        <td>{{ form.dg5b.label }}</td>
+        {{ for choice in form.dg5b }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+</table>
+<br>
+
+<div>
+    <center><button type="submit"  class="btn btn-primary btn-tab"><strong>NEXT</strong></button></center>
+</div>
+
+
+{{ endblock }}

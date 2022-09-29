@@ -1,0 +1,58 @@
+{{ block title }}
+Instructions
+{{ endblock }}
+{{ block content }}
+
+<style>
+    table {
+        border: none;
+    }
+    table td {
+    border: none;
+    }
+</style>
+
+<div class="frame">
+    <p>This part of the experiment involves an investment task.</p>
+
+    <p>You are given {{ Constants.endowment }} and can choose a
+        portion of this amount to invest in an asset. The money not invested is yours to keep.
+    There is a {{ Constants.prob }} chance that the investment in the asset will be successful.
+        If it is successful, you will receive {{ Constants.multiplier }} times the amount invested.
+        If it is unsuccessful, you will lose the amount invested.</p>
+
+    <p>
+        If the investment task is chosen for your payment in Part III,
+        your earnings from this task will be added to your earnings from Part I and
+        Part II, and the participation fee.</p>
+<br>
+    <p>Please answer the example questions below to proceed.</p>
+    <ul>
+        <li>Suppose you invest 120 points in the asset.
+            <table class="table" style="width: 75%;">
+                <tr>
+                    <td style='text-align:left; vertical-align:middle'>How much do you earn if the investment is successful?</td>
+                    <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                        {{ formfield player.ex1 }}
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='text-align:left; vertical-align:middle'>How much do you earn if the investment is unsuccessful?</td>
+                    <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                        {{ formfield player.ex2 }}
+                    </div>
+                    </td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+</div>
+<br>
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+
+{{ endblock }}

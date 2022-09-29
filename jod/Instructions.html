@@ -1,0 +1,66 @@
+{{ block title }}
+Instructions
+{{ endblock }}
+{{ block content }}
+
+<style>
+    table {
+        border: none;
+    }
+    table td {
+    border: none;
+    }
+</style>
+
+<div class="frame">
+    <p>This part of the experiment involves two types of participants: Participant A and Participant B. </p>
+    <p>Participant A and Participant are each given {{ Constants.endowment|cu }}.
+        Participant A decides whether to reduce (part of) Participant B's
+        earnings or to leave it as it is. It costs Participant A 1 point
+        to reduce Participant B's earnings by {{ Constants.destruction_strength|cu }}.
+        More specifically,
+        for each 1 point Participant A spends, Participant B's earnings
+        will be reduced by {{ Constants.destruction_strength|cu }}. Participant A can therefore choose
+        a number of points between 0 and 25
+        to spend on reducing Participant B's earnings.
+        Participant B makes <strong>no</strong> decisions.
+    </p>
+    <p><strong>Final earnings are calculated as follows:</strong></p>
+
+    <ul>
+        <li>Participant A earns: {{ Constants.endowment|cu }}
+            - the number of points Participant A spent on reducing Participant B's earnings </li>
+
+        <li>Participant B earns: {{ Constants.endowment|cu }}
+            - {{ Constants.destruction_strength }} times the number of points Participant A
+            spent on reducing Participant B's earnings</li>
+    </ul>
+    <br>
+    <p>Please answer the example questions below to proceed.</p>
+    <ul>
+        <li>Suppose Participant A spends 12 points in reducing Participant B's earnings.
+            <table class="table" style="width: 60%;">
+                <tr>
+                    <td style='text-align:left; vertical-align:middle'>How many points does Participant A earn?</td>
+                    <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                        {{ formfield player.ex1 }}
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='text-align:left; vertical-align:middle'>How many points does Participant B earn?</td>
+                    <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                        {{ formfield player.ex2 }}
+                    </div>
+                    </td>
+                </tr>
+            </table>
+    </ul>
+</div>
+<br>
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+{{ endblock }}

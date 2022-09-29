@@ -1,0 +1,21 @@
+{% load otree %}
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<center>
+<div class="frame" style="width: 70%">
+    <p style="text-align: center; font-weight: normal; margin-left: 50px; margin-right: 0px;">
+        You completed the practice questions.
+        Now we will start with the task.
+    </p>
+</div>
+    </center>
+<div style="padding: 20px 0px 0px 0px">
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>Proceed to Round #{{ subsession.round_number }}</strong></button></center>
+</div>
+
+{% endblock %}

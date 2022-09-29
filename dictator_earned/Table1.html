@@ -1,0 +1,28 @@
+{{ block title }}
+Table 1
+{{ endblock }}
+{{ block content }}
+
+<style>
+    .tab {
+        display: none;
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="frame">
+    <p>Please count the right-arrow symbols (<span>&#8594;</span>) in the table below. You need to enter
+        the correct answer to proceed to the next table.</p>
+    <center>
+   <img style="width: 400px;" src="/static/dictator_earned/table1.png">
+        {{ formfield player.t1 }}
+    </center>
+
+</div>
+<br>
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+{{ endblock }}

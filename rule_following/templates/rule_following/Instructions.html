@@ -1,0 +1,59 @@
+{{ block title }}
+Instructions
+{{ endblock }}
+{{ block content }}
+
+<style>
+    table {
+        border: none;
+    }
+    table td {
+    border: none;
+    }
+</style>
+
+<div class="frame">
+    <p>In this part of the experiment, you will decide how to allocate {{ Constants.num_balls }}
+        balls between two buckets.</p>
+
+    <p>Your task is to put each of the balls, one-by-one, into one of the two buckets:
+        the blue bucket or the yellow bucket. The balls will appear in the center of your screen,
+        and you can allocate each ball by clicking on the corresponding button. For each ball you put in
+        the blue bucket, you will receive {{ Constants.points_a|cu }}, and for each ball you put in the yellow bucket,
+        you will receive {{ Constants.points_b|cu }}.</p>
+    <center>
+    <p style="font-size:18px;"><strong>The rule is to put the balls in the blue bucket.</strong>
+    </p></center>
+
+
+    <p>Your payment from this part will be based on your decisions:
+        it is the sum of payments from the blue and yellow buckets.
+        If this task is chosen for your payment in Part III, your earnings from this task
+        will be added to your earnings from Part I and Part II, and the participation fee.</p>
+<br>
+    <p>Please answer the example questions below to proceed.</p>
+    <ul>
+        <li>Suppose you put 20 balls in the blue bucket and 30 balls in the yellow bucket. How many points do you earn?
+            <center>
+                <div class="frame" style="padding: 10px 10px 0px 10px; margin:0;">
+                    {{ formfield player.ex1 }}
+                </div>
+            </center>
+        </li>
+        <li>Suppose you put 30 balls in blue bucket and 20 balls in the yellow bucket. How many points do you earn?
+            <center>
+                <div class="frame" style="padding: 10px 10px 0px 10px; margin:0;">
+
+                </div>{{ formfield player.ex2 }}
+            </center>
+        </li>
+    </ul>
+</div>
+<br>
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+
+{{ endblock }}

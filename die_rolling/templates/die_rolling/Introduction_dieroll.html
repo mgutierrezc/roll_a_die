@@ -1,0 +1,149 @@
+{{ load otree }}
+
+
+{{ block title }}
+  Instructions
+{{ endblock }}
+
+
+
+{{ block content }}
+<style>
+    .tab {
+        display: none;
+        margin-bottom: 30px;
+    }
+    table td {
+    border: none;
+    }
+</style>
+
+<div class="tab">
+    <p>This part of the experiment involves {{ Constants.num_rounds }}
+        {{ if Constants.num_rounds == 1 }} round{{ else }} rounds{{ endif }} of a die-rolling task.</p>
+
+    <p> In each round, you will see a random roll of a die on the computer screen.
+        Your task is to report the outcome of the die roll that you saw on the screen.</p>
+    <p>Your payoff will be determined by the result that you report. Specifically, in each round,...</p>
+        <ul>
+            <li style="list-style-type: none;">...you will earn <strong>{{ Constants.lying_reward_die_roll }} if you report a 5</strong>.</li>
+            <li style="list-style-type: none">...you will earn <strong>{{ Constants.no_lying_reward_die_roll }} otherwise</strong>.</li>
+        </ul>
+    <p>We do <strong>not</strong> want your answers in one round
+        to affect your decisions in another.
+        So after the end of the study we will randomly choose one
+        round and use your report in this round to determine your payment for the die-rolling task.
+        If the die-rolling task is chosen for your payment in Part III,
+        your earnings from this task will be added to your earnings from Part I and Part II,
+        and the participation fee.</p>
+    <i>This is the end of the instructions for this part. We will go through some examples on the next pages.</i>
+    <br>
+<center><button type="button" class="btn btn-primary btn-tab" data-offset="1"><strong>NEXT</strong></button></center>
+</div>
+<div class="tab">
+    <p>Suppose you observe the following die roll in a round:</p>
+
+    <table align="center" style="width: auto; margin: auto">
+        <tr><td><div class="frame-vid"><video autoplay muted> <source src="/static/{{ image_path1 }}" type="video/mp4">
+        </video></div></td></tr>
+    </table>
+    <br>
+
+    <table class="table" style="width: 75%;">
+        <tr>
+            <td style='text-align:left; vertical-align:middle'>How many points do you earn
+                for this round if you report a 3?</td>
+            <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                {{ formfield player.q1 }}
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td style='text-align:left; vertical-align:middle'>How many points do you earn
+                for this round if you report a 5?</td>
+            <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                {{ formfield player.q2 }}
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td style='text-align:left; vertical-align:middle'>How many points do you earn
+                for this round if you report a 6?</td>
+            <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                {{ formfield player.q3 }}
+            </div>
+            </td>
+        </tr>
+    </table>
+    <center>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1"><strong>Go back to instructions</strong></button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1"><strong>Next example</strong></button>
+    </p>
+    </center>
+</div>
+<div class="tab">
+    <p>Suppose you observe the following die roll in a round:</p>
+
+    <table align="center" style="width: auto; margin: auto">
+        <tr><td><div class="frame-vid"><video autoplay muted> <source src="/static/{{ image_path2 }}" type="video/mp4">
+        </video></div></td></tr>
+    </table>
+    <br>
+
+    <table class="table" style="width: 75%;">
+        <tr>
+            <td style='text-align:left; vertical-align:middle'>How many points do you earn
+                for this round if you report a 3?</td>
+            <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                {{ formfield player.q4 }}
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td style='text-align:left; vertical-align:middle'>How many points do you earn
+                for this round if you report a 5?</td>
+            <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                {{ formfield player.q5 }}
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td style='text-align:left; vertical-align:middle'>How many points do you earn
+                for this round if you report a 6?</td>
+            <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                {{ formfield player.q6 }}
+            </div>
+            </td>
+        </tr>
+    </table>
+    <center>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1"><strong>Go back to instructions</strong></button>
+        <button class="btn btn-primary"><strong>Proceed to task</strong></button>
+    </p>
+    </center>
+</div>
+<script>
+
+    let activeTab = 0;
+
+    function showCurrentTabOnly() {
+        let tabIndex = 0;
+        for (let tab of document.getElementsByClassName('tab')) {
+            tab.style.display = tabIndex === activeTab ? 'block' : 'none';
+            tabIndex++;
+        }
+    }
+
+    showCurrentTabOnly();
+    for (let btn of document.getElementsByClassName('btn-tab')) {
+        btn.onclick = function () {
+            activeTab += parseInt(btn.dataset.offset);
+            showCurrentTabOnly();
+        }
+    }
+</script>
+
+{{ endblock }}
+

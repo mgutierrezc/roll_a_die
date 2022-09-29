@@ -1,0 +1,17 @@
+{% load otree %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<center>
+    <p><b>Before you start the task, we will show you how some other participants behaved in this task
+        in an earlier study we conducted at this lab with other participants from
+        {{ if country == 'nl' }} the University of Amsterdam{{ else }} Boğaziçi University{{ endif }}.</b></p>
+    </center>
+<div style="padding: 20px 0px 0px 0px">
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+{% endblock %}

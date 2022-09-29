@@ -1,0 +1,126 @@
+{{ block title }}Instructions{{ endblock }}
+{{ block content }}
+<style>
+    .tab {
+        display: none;
+        margin-bottom: 30px;
+    }
+    table td {
+    border: none;
+    }
+</style>
+
+
+<div class="tab">
+    <p>At the beginning of each situation, you will go through some examples.
+        You will need to answer the example questions correctly to proceed to the task,
+        so please read them carefully. Keep in mind that the numbers in the examples are randomly
+        chosen and do <strong>not</strong> have a meaning.</p>
+
+<p>We do <strong>not</strong> want what happens in one situation to affect your decisions in another.
+    So, after the end of the experiment, we will randomly select 5 of the situations from Part I
+    and use these to determine your payment for Part I. For each situation, we will also randomly select
+    one of the possible actions that Participant X could take. Thus, we will select both a situation and
+    one possible action at random. </p>
+
+    <p>For each of the 5 selected actions, we will determine which response
+        was selected by most people in the experiment for that particular action.
+        For each action, you will earn {{ Constants.bonus|cu }} if you gave the same response as that most
+        frequently given by other people in the experiment.</p>
+
+    <p>Your total earnings from Part I can therefore be
+        {{ bonus0 }}, {{ bonus1 }}, {{ bonus2 }}, {{ bonus3 }}, {{ bonus4 }} or {{ bonus5 }} points.
+        Your earnings from Part I will be added to the participation fee. </p>
+
+    <p>Because only some decisions will count for your payment, but it is
+        <strong>not</strong> yet known which ones, we suggest that you
+        treat each decision as if it is the only one that matters for your final payment.</p>
+    <p>
+
+        <i> This is the end of the instructions for this part. We will now go through an example.</i>
+
+    <center><button type="button" class="btn btn-primary btn-tab" data-offset="1"><strong>NEXT</strong></button></center>
+    </p>
+</div>
+<div class="tab">
+
+    <p>Consider a task that involves two types of participants: Participant X and Participant Y.</p>
+
+    <p>In this task, Participant X will make a choice that affects the payoffs of both participants.
+        Suppose that Participant X has to choose between 3 different options, where</p>
+
+    <ul>
+        <li>Option 1 yields 0 points to Participant X and 200 points to Participant Y.</li>
+        <li>Option 2 yields 100 points to Participant X and 100 points to Participant Y.</li>
+        <li>Option 3 yields 200 points to Participant X and 0 points to Participant Y.</li>
+    </ul>
+
+    <p>For each option, you will be asked to indicate how socially appropriate that option is.
+        More specifically, you will choose one of the following appropriateness levels for each option:
+        "Very socially inappropriate", "Somewhat socially inappropriate", "Somewhat socially appropriate",
+        or "Very socially appropriate".</p>
+
+    <p>If this task is chosen for payment, we will then randomly select one of the options above.
+        Suppose Option 3 is selected. We will then compare your answer for Option 3 to
+        the answer given by most people in the experiment. If you give the same answer as most people,
+        you will earn {{ Constants.bonus|cu }}.
+        <strong>It is therefore important that you submit your best guess on how socially appropriate
+            you think each option is.</strong></p>
+
+        Please answer the example questions below to proceed.
+
+    <ul>
+        <li>Suppose you answered "Somewhat socially inappropriate" for an action. How many points do you earn if most people in the experiment answered
+            <table class="table" style="width: 70%;">
+                <tr>
+                    <td style='text-align:left; vertical-align:middle'>"Somewhat socially appropriate" for that action?</td>
+                    <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                        {{ formfield player.ex1 }}
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='text-align:left; vertical-align:middle'>"Very socially inappropriate" for that action?</td>
+                    <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                        {{ formfield player.ex2 }}
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='text-align:left; vertical-align:middle'>"Somewhat socially inappropriate" for that action?</td>
+                    <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                        {{ formfield player.ex3 }}
+                    </div>
+                    </td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+
+    <center><button type="button" class="btn btn-primary btn-tab" data-offset="-1"><strong>Go back to instructions</strong></button>
+        <button class="btn btn-primary"><strong>Proceed to task</strong></button></center>
+    </p>
+</div>
+
+<script>
+
+    let activeTab = 0;
+
+    function showCurrentTabOnly() {
+        let tabIndex = 0;
+        for (let tab of document.getElementsByClassName('tab')) {
+            tab.style.display = tabIndex === activeTab ? 'block' : 'none';
+            tabIndex++;
+        }
+    }
+
+    showCurrentTabOnly();
+    for (let btn of document.getElementsByClassName('btn-tab')) {
+        btn.onclick = function () {
+            activeTab += parseInt(btn.dataset.offset);
+            showCurrentTabOnly();
+        }
+    }
+</script>
+
+{{ endblock }}

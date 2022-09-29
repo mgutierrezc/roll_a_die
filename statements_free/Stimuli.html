@@ -1,0 +1,30 @@
+{{ block title }}
+{{ endblock }}
+{{ block content }}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<center>
+<div class="w3-container">
+
+    <div class="w3-light-grey w3-round-xlarge" style="height:6px;width:25%">
+        <div class="w3-container w3-round-xlarge" style="background-color:#337AFF;float:left;height:6px;width:{{ progress }}%"></div>
+    </div>
+
+</div>
+</center>
+<br>
+<br>
+
+<p style="font-size: 22px;">{{ player.question }}</p>
+
+{{ formfields }}
+<br>
+
+<div>
+    <button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button>
+</div>
+
+
+{{ endblock }}

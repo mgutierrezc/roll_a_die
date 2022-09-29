@@ -1,0 +1,23 @@
+
+{{ block title }}
+
+{{ endblock }}
+{{ block content }}
+
+    <div class="frame">
+        <p>You have {{ Constants.endowment }}.
+            You can invest a portion of this amount in an asset.
+            The money not invested is yours to keep.
+            There is a {{ Constants.prob }} chance that the investment in the asset will be successful.
+            If it is successful, you will receive {{ Constants.multiplier }} times the amount invested.
+            If it is unsuccessful, you will lose the amount invested.</p>
+
+        <center>
+        <div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+            {{ formfield player.invested }}
+        </div> </center>
+        <div>
+            <center><button type="submit"  class="btn btn-primary btn-tab"><strong>NEXT</strong></button></center>
+        </div>
+
+{{ endblock }}

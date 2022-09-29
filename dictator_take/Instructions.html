@@ -1,0 +1,45 @@
+{{ block title }}
+Instructions
+{{ endblock }}
+{{ block content }}
+
+<style>
+    .tab {
+        display: none;
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="frame">
+    <p>This part of the experiment involves two types of participants: Participant A and Participant B. </p>
+    <p>In this task, Participant A and Participant B are each given {{ Constants.endowment|cu }}.
+        Participant A decides whether to give points to or take points from Participant B.
+        Specifically, Participant A chooses a number of points between 0 and {{ Constants.endowment }}
+        to give to or to take from Participant B. Participant B makes <strong>no</strong> decisions.
+    </p>
+    <br>
+    <p>Please answer the example questions below to proceed.</p>
+    <ul>
+    <li>Suppose Participant A gives 150 points to Participant B. How many points does Participant A earn?
+        <center>
+            <div class="frame" style="width: 20%; padding: 10px 10px 0px 10px; margin:0;">
+                {{ formfield player.ex1 }}
+            </div>
+        </center>
+    </li>
+        <li>Suppose Participant A takes 50 points to Participant B. How many points does Participant B earn?
+            <center>
+                <div class="frame" style="width: 20%; padding: 10px 10px 0px 10px; margin:0;">
+                    {{ formfield player.ex2 }}
+                </div>
+            </center>
+        </li>
+    </ul>
+</div>
+<br>
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+{{ endblock }}

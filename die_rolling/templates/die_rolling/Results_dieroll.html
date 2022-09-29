@@ -1,0 +1,69 @@
+{% load otree %}
+
+{% block styles %}
+
+    <style>
+
+        th {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 0px 20px 5px 0px;
+            text-align: center;
+            vertical-align: center;
+        }
+
+         td {
+            font-size: 20px;
+            font-weight: normal;
+            padding: 0px 10px 5px 10px;
+            vertical-align: center;
+         }
+
+    </style>
+
+{% endblock %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+<center>
+
+<div class="frame" style="text-align:center; vertical-align:middle; width: 100%; padding: 15px 35px 20px 45px; margin: 0px">
+<table style="width: 100%; margin: 0;">
+    <tr>
+        <th>Round:</th>
+        {% for r in rounds %}
+            <td>#{{ r }}</td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Report:</th>
+        {% for r in reports %}
+            <td>
+                <img style="width: 50px;" src="/static/{{ r }}">
+            </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <th>Payoff:</th>
+        {% for p in payoffs %}
+            <td>
+                {{ p }}
+            </td>
+        {% endfor %}
+    </tr>
+</table>
+
+    </div>
+            <p colspan="5" style="font-weight: normal; text-align: left;"> <strong>Note:</strong>
+                At the end of the experiment, we will randomly determine whether the die-rolling task
+                counts towards your payoff. If that's the case, we will randomly draw one of the rounds
+            and determine your earnings based on that.</p>
+<div style="width: 42%; padding: 5px 0px 0px 0px; font-weight: bold; text-align: justify; font-size: 15px; font-style: italic;">
+    <center><button  type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+    </center>
+{% endblock %}
+

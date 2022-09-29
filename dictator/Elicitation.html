@@ -1,0 +1,62 @@
+{{ block title }}{{ endblock }}
+<style>
+table {
+    border:none;
+    border-collapse: collapse;
+}
+
+table td {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr {
+  border-bottom: 1pt solid black;
+}
+
+tr:nth-child(even) {background-color: #CCC;}
+</style>
+
+{{ block content }}
+    <p>
+        Participant A has {{ Constants.endowment_dictator }} points.
+        Participant B has {{ Constants.endowment_not_dictator }} points. Participant A chooses a number
+        of points between
+        0 and {{ Constants.endowment_dictator }} to give to Participant B.
+    </p>
+    <p>
+        Please indicate how socially appropriate or inappropriate you think
+        Participant A's action is in each of the possible scenarios below.
+    </p>
+<table class="table">
+    <thead>
+    <tr>
+        <th></th>
+        <th style='text-align:center; vertical-align:middle'>Very <br> socially <br> inappropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Somewhat <br> socially <br> inappropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Somewhat <br> socially <br> appropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Very <br> socially <br> appropriate</th>
+    </tr>
+    </thead>
+    {{ for field in form }}
+    <tr>
+        <td>{{ field.label }}</td>
+        {{ for choice in field }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+    {{ endfor }}
+</table>
+
+
+<div>
+    <center><button type="submit"  class="btn btn-primary btn-tab"><strong>NEXT</strong></button></center>
+</div>
+
+
+{{ endblock }}

@@ -1,0 +1,32 @@
+{{ block title }}
+Instructions
+{{ endblock }}
+{{ block content }}
+
+<style>
+    .tab {
+        display: none;
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="frame">
+    <p>This part of the experiment involves two types of participants: Participant A and Participant B. </p>
+    <p> For this part of the experiment, both Participant A and Participant B worked on
+          a counting task and earned a reward of {{ Constants.endowment_dictator|cu }}.
+    In the counting task, you count the symbols in a series of tables as given below.</p>
+    <center>
+   <img style="width: 400px;" src="/static/dictator_earned/example.png">
+    </center>
+    <p>To familiarize yourself with the task,
+        you will count the symbols in a total of {{ Constants.num_rounds }}
+        {{ if Constants.num_rounds == 1 }} table{{ else }} tables{{ endif }}.
+        You will need to submit the correct number in order to continue to the next table. </p>
+</div>
+<br>
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+{{ endblock }}

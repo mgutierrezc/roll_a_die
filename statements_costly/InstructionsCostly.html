@@ -1,0 +1,136 @@
+{{ block title }}
+
+{{ endblock }}
+{{ block content }}
+
+<style>
+    .tab {
+        display: none;
+        margin-bottom: 30px;
+    }
+    table {
+        border: none;
+    }
+    table td {
+    border: none;
+    }
+</style>
+
+<div class="tab">
+    <center>
+        <p style="text-align: center; font-weight: normal; margin-top: 50px; margin-bottom: 25px; font-size: 32px"> Welcome to Section II</p>
+    </center>
+    <p>In Section II, you will read the statements from Section I once again and answer
+        how likely you are to take the action in each statement.
+        You are endowed with {{ Constants.section2_endowment|cu }} for Section II. </p>
+
+    <p>If Section II is chosen for your payment, your earnings from Section II
+        will be added to your participation fee and other earnings from the experiment.
+        For each statement in Section II, you can answer "Definitely no", "No", "Maybe", "Yes", "Definitely yes".
+        However, your earnings now depend on your answer. More specifically, it costs you </p>
+    <ul>
+        <li>
+            5 points to answer "Definitely no"
+        </li>
+        <li>
+            10 points to answer "No"
+        </li>
+        <li>
+            15 points to answer "Maybe"
+        </li>
+        <li>
+            20 points to answer "Yes"
+        </li>
+        <li>
+            25 points to answer "Definitely yes"
+        </li>
+    </ul>
+    <p>In each of your responses, we would like you to answer <strong>as truthfully as possible.</strong> </p>
+
+
+    <p>We do <strong>not</strong> want your answers in one statement to affect your decisions in another.
+        So after the end of the study we will randomly choose 20 statements
+        and use these to determine your earnings in Part II, if Section II is chosen for your payment in Part II.</p>
+
+    <p>Because only some decisions will count for your payment, but it is <strong>not</strong> yet known which
+        ones, we suggest that you treat each decision as if it is the only one that matters for your final payment.</p>
+
+    <i>We will go through an example statement on the next page.</i>
+
+<p>
+<center><button type="button" class="btn btn-primary btn-tab" data-offset="1"><strong>NEXT</strong></button></center>
+</p>
+</div>
+<div class="tab">
+    <p>Similar to Section I, the statements will be of the following form. </p>
+    <center>
+    <p>"I would help my parents with the household chores when I visit them."</p>
+    </center>
+    <p>You will be then asked to indicate how likely you are to take the action in the statement.
+        In the example above, this means that you will be saying how likely you are to help your parents
+        with the household chores when you visit them.You can answer "Definitely no", "No", "Maybe", "Yes",
+        or "Definitely yes". In Section II, it costs you </p>
+    <ul>
+        <li>
+            5 points to answer "Definitely no"
+        </li>
+        <li>
+            10 points to answer "No"
+        </li>
+        <li>
+            15 points to answer "Maybe"
+        </li>
+        <li>
+            20 points to answer "Yes"
+        </li>
+        <li>
+            25 points to answer "Definitely yes"
+        </li>
+    </ul>
+    <p>Please answer the questions below. You need to answer them correctly to continue to Section II.</p>
+
+            <table class="table" style="width: 75%;">
+                <tr>
+                    <td style='text-align:left; vertical-align:middle'>How many points does it cost you to answer "Definitely no"?</td>
+                    <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                        {{ formfield player.ex1 }}
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='text-align:left; vertical-align:middle'>How many points does it cost you to answer "Yes"?</td>
+                    <td><div class="frame" style="width: 100%; padding: 0px 0px 0px 0px; margin:0;">
+                        {{ formfield player.ex2 }}
+                    </div>
+                    </td>
+                </tr>
+            </table>
+
+    <center><button type="button" class="btn btn-primary btn-tab" data-offset="-1"><strong>Go back to instructions</strong></button>
+        <button class="btn btn-primary"><strong>Start Section II</strong></button></center>
+    </p>
+</div>
+
+<script>
+
+    let activeTab = 0;
+
+    function showCurrentTabOnly() {
+        let tabIndex = 0;
+        for (let tab of document.getElementsByClassName('tab')) {
+            tab.style.display = tabIndex === activeTab ? 'block' : 'none';
+            tabIndex++;
+        }
+    }
+
+    showCurrentTabOnly();
+    for (let btn of document.getElementsByClassName('btn-tab')) {
+        btn.onclick = function () {
+            activeTab += parseInt(btn.dataset.offset);
+            showCurrentTabOnly();
+        }
+    }
+</script>
+
+{{ endblock }}
+

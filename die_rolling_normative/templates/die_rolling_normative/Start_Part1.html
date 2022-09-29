@@ -1,0 +1,20 @@
+{% load otree %}
+
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<center>
+<div class="frame">
+    <p>
+        Now you will start the die-rolling task.
+    </p>
+
+</div>
+</center>
+<div style="padding: 20px 0px 0px 0px">
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>Proceed to Round #{{ subsession.round_number }}</strong></button></center>
+</div>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{{ block title }}{{ endblock }}
+<style>
+table {
+    border:none;
+    border-collapse: collapse;
+}
+
+table td {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr {
+  border-bottom: 1pt solid black;
+}
+
+tr:nth-child(even) {background-color: #CCC;}
+</style>
+
+{{ block content }}
+    <p>Suppose now that, after Participant A makes their decision, we tell them the following:
+    </p>
+    <p>
+        <strong style="font-style: italic;">It would be especially useful if you were to reduce Participant B's
+            earnings if you have not done so already.
+            You are entirely free not to reduce if you wish.</strong>
+    </p>
+    <p>
+        and that we ask them to submit a choice again.
+    </p>
+    <p>
+        Please indicate how socially appropriate or inappropriate you think
+        Participant A's action is in each of the possible scenarios below.
+    </p>
+<table class="table">
+    <thead>
+    <tr>
+        <th></th>
+        <th style='text-align:center; vertical-align:middle'>Very <br> socially <br> inappropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Somewhat <br> socially <br> inappropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Somewhat <br> socially <br> appropriate</th>
+        <th style='text-align:center; vertical-align:middle'>Very <br> socially <br> appropriate</th>
+    </tr>
+    </thead>
+    {{ for field in form }}
+    <tr>
+        <td>{{ field.label }}</td>
+        {{ for choice in field }}
+        <td style='text-align:center; vertical-align:middle; font-size: 22px;'>{{ choice }}</td>
+        {{ endfor }}
+    </tr>
+    {{ endfor }}
+</table>
+
+
+<div>
+    <center><button type="submit"  class="btn btn-primary btn-tab"><strong>NEXT</strong></button></center>
+</div>
+
+
+{{ endblock }}

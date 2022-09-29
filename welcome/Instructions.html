@@ -1,0 +1,36 @@
+{{ block title }}Instructions{{ endblock }}
+{{ block content }}
+
+<p>We are interested in how people make decisions that affect their own and others' payoffs.
+    You will earn a participation fee of {{participation_fee}}.
+    Additionally, you will earn money based on your (and others')
+    decisions in the experiment. During the experiment, payoffs will be given in points.
+    Every point is worth {{currency_per_point}} {{ if country == 'nl' }} cent {{ else }} kuruş {{ endif}}
+    (100 points = {{ if country == 'nl' }} &euro;1{{ else }} <span>&#8378;</span>1{{ endif}}).</p>
+
+<p>You will receive your final payment via bank transfer within the next couple of days.
+    Your bank information will be used only for your payment,
+    and will <strong>in no way</strong> be matched to your decisions in our analysis.</p>
+
+<p>The experiment consists of three main parts.
+    In each part, you will be asked to make decisions in a series of tasks.
+    Any decision you make is completely anonymous.</p>
+
+<p>The rules for each task will be different.
+    You will be given detailed instructions for each task at the beginning of that task.
+    <strong>Your earnings in each task depends on the rules of the task,
+        so, please read the instructions carefully.</strong>
+    You will need to make calculations in some tasks.
+    These will be easy calculations, but we suggest having a calculator nearby.</p>
+
+<p>We are purely interested in your choices, and are <strong>not</strong> trying to
+    "trick" you in any way. If you see anything out of place or if something does
+    <strong>not</strong> make sense, please let us know.</p>
+
+<p>When you are ready to start the experiment, please click on the button below.</p>
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>I UNDERSTAND AND AGREE</strong></button></center>
+</div>
+
+{{ endblock }}

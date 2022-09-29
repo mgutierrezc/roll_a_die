@@ -1,0 +1,30 @@
+{{ block title }}
+Instructions
+{{ endblock }}
+{{ block content }}
+
+<style>
+    table {
+        border: none;
+    }
+    table td {
+    border: none;
+    }
+</style>
+
+<div class="frame">
+    <p>You are endowed with {{ Constants.section1_endowment|cu }} for Section I. If Section I is chosen for your payment,
+        the {{ Constants.section1_endowment|cu }} will be added to your participation fee and other earnings from the experiment.</p>
+    </p>
+
+    <p>In each of your responses, we would like you to answer <strong>as truthfully as possible.</strong> </p>
+
+</div>
+<br>
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+
+{{ endblock }}

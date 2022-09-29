@@ -1,0 +1,48 @@
+{{ block title }}
+Instructions
+{{ endblock }}
+{{ block content }}
+
+<style>
+    .tab {
+        display: none;
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="frame">
+    <p>This part of the experiment involves two types of participants: Participant A and Participant B. </p>
+    <p>In this task, Participant A is given {{ Constants.endowment_dictator|cu }}.
+        Participant B is given {{ Constants.endowment_not_dictator|cu }}. Participant A decides how to
+        allocate the {{ Constants.endowment_dictator|cu }} between themself
+        and Participant B. Specifically, Participant A chooses a number of points between
+        0 and {{ Constants.endowment_dictator }} to give
+        to Participant B and keeps the remaining points.
+        Participant B makes <strong>no</strong> decisions.
+    </p>
+    <br>
+    <p>Please answer the example questions below to proceed.</p>
+    <ul>
+    <li>Suppose Participant A gives 125 points to Participant B. How many points does Participant A earn?
+        <center>
+            <div class="frame" style="padding: 10px 10px 0px 10px; margin:0;">
+                {{ formfield player.ex1 }}
+            </div>
+        </center>
+    </li>
+        <li>Suppose Participant A gives 350 points to Participant B. How many points does Participant B earn?
+            <center>
+                <div class="frame" style="padding: 10px 10px 0px 10px; margin:0;">
+
+                </div>{{ formfield player.ex2 }}
+            </center>
+        </li>
+    </ul>
+</div>
+<br>
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+{{ endblock }}

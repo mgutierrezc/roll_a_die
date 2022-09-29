@@ -1,0 +1,193 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block styles %}
+<style type="text/css">
+table { font-size:20px; text-align:center; margin: 25px auto 0 auto; }
+table th {color:black; width: 20px; height: 20x; padding-top:3px; padding-bottom:2px; padding-left:1px; padding-right:1px;}
+table td {color:black; width: 20px; height: 20px; padding-top:3px; padding-bottom:2px; padding-left:1px; padding-right:1px;}
+#bucketA {display:inline-block; height: 320px; width: 25%; margin-left:5px; margin-right:5px;}
+#bucketB {display:inline-block; height: 320px; width: 25%; margin-left:5px; margin-right:5px;}
+#bucketI {display:inline-block; height: 320px; width: 25%; margin-left:5px; margin-right:5px;}
+.bucket { background: url('/static/rule_following/bucket.jpg');  background-repeat:no-repeat; background-size: 100% auto; margin-bottom:15px}
+.bucketA { background: url('/static/rule_following/bucketA.jpg');  background-repeat:no-repeat; background-size: 100% auto; margin-bottom:15px}
+.bucketI { background: url('/static/rule_following/bucketI.jpg');  background-repeat:no-repeat; background-size: 100% auto; margin-bottom:15px}
+.bucketB { background: url('/static/rule_following/bucketB.jpg');  background-repeat:no-repeat; background-size: 100% auto; margin-bottom:15px}
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<p>Please take the balls from the bucket in the middle and place them into the blue and yellow buckets
+    by using the buttons below.</p>
+<p>For each ball you put in the blue bucket, you will receive
+    {{ Constants.points_a|cu }}, and for each ball you put in the yellow bucket,
+    you will receive {{ Constants.points_b|cu }}. <strong>The rule is to put the balls in the blue bucket.</strong></p>
+<br>
+
+<input type="hidden" name="balls_A" id="balls_A"/>
+<input type="hidden" name="balls_B" id="balls_B"/>
+<input type="hidden" name="balls_I" id="balls_I"/>
+
+<center>
+    <div class="bucketA" id="bucketA"></div>
+    <div class="bucketI" id="bucketI"></div>
+    <div class="bucketB" id="bucketB"></div>
+</center>
+<center>
+<button id='addA' type="button" class="otree-btn-next btn btn-primary" onclick="add_A()">Add to blue bucket</button>
+<button id='addB' type="button" class="otree-btn-next btn btn-primary" onclick="add_B()">Add to yellow bucket</button>
+<br>
+
+<button id='removeA' type="button" class="otree-btn-next btn btn-primary" onclick="remove_A()">Remove from blue bucket</button>
+<button id='removeB' type="button" class="otree-btn-next btn btn-primary" onclick="remove_B()">Remove from yellow bucket</button>
+<br>
+<br>
+</center>
+<center>
+    <button id='confirm_button' class="otree-btn-next btn btn-primary" onclick="Confirm()">Confirm</button>
+</center>
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+
+    var bucketA = 0
+    var bucketB = 0
+    var bucketI = 50
+
+    var rows = Math.ceil(Math.sqrt(bucketI))
+    var columns = Math.ceil(Math.sqrt(bucketI))-1
+
+    //create buckets
+    var matrixA = Array(rows).fill(null).map( () => Array(columns).fill(0));
+    var matrixB = Array(rows).fill(null).map( () => Array(columns).fill(0));
+    var matrixI = Array(rows).fill(null).map( () => Array(columns).fill(0));
+
+    updateBucket(bucketA, matrixA);
+    document.getElementById("bucketA").innerHTML = makeTable(matrixA);
+    updateBucket(bucketB, matrixB);
+    document.getElementById("bucketB").innerHTML = makeTable(matrixB);
+    updateBucket(bucketI, matrixI);
+    document.getElementById("bucketI").innerHTML = makeTable(matrixI);
+
+    function add_A() {
+        if (bucketI >= 1){
+            bucketI = bucketI - 1;
+            bucketA = bucketA + 1;
+        } else {
+            alert("You have no balls left.");
+        }
+
+        updateBucket(bucketA, matrixA);
+        document.getElementById("bucketA").innerHTML = makeTable(matrixA);
+        updateBucket(bucketB, matrixB);
+        document.getElementById("bucketB").innerHTML = makeTable(matrixB);
+        updateBucket(bucketI, matrixI);
+        document.getElementById("bucketI").innerHTML = makeTable(matrixI);
+
+    }
+
+    function remove_A() {
+        if (bucketA >= 1){
+            bucketI = bucketI + 1;
+            bucketA = bucketA - 1;
+        } else {
+            alert("Blue bucket is empty");
+        }
+
+        updateBucket(bucketA, matrixA);
+        document.getElementById("bucketA").innerHTML = makeTable(matrixA);
+        updateBucket(bucketB, matrixB);
+        document.getElementById("bucketB").innerHTML = makeTable(matrixB);
+        updateBucket(bucketI, matrixI);
+        document.getElementById("bucketI").innerHTML = makeTable(matrixI);
+
+    }
+
+    function add_B() {
+        if (bucketI >= 1){
+            bucketI = bucketI - 1;
+            bucketB = bucketB + 1;
+        } else {
+            alert("You have no balls left.");
+        }
+
+        updateBucket(bucketA, matrixA);
+        document.getElementById("bucketA").innerHTML = makeTable(matrixA);
+        updateBucket(bucketB, matrixB);
+        document.getElementById("bucketB").innerHTML = makeTable(matrixB);
+        updateBucket(bucketI, matrixI);
+        document.getElementById("bucketI").innerHTML = makeTable(matrixI);
+    }
+
+    function remove_B() {
+        if (bucketB >= 1){
+            bucketI = bucketI + 1;
+            bucketB = bucketB - 1;
+        } else {
+            alert("Yellow bucket is empty");
+        }
+
+        updateBucket(bucketA, matrixA);
+        document.getElementById("bucketA").innerHTML = makeTable(matrixA);
+        updateBucket(bucketB, matrixB);
+        document.getElementById("bucketB").innerHTML = makeTable(matrixB);
+        updateBucket(bucketI, matrixI);
+        document.getElementById("bucketI").innerHTML = makeTable(matrixI);
+    }
+
+    function Confirm() {
+        document.getElementById('balls_A').value = bucketA;
+        document.getElementById('balls_B').value = bucketB;
+        document.getElementById('balls_I').value = bucketI;
+    }
+
+    function updateBucket(num_balls, matrix){
+        var current_balls = 0;
+        for(var i=0; i<rows; i++) {
+            for (var j=0; j<columns; j++){
+                current_balls += 1;
+                if (current_balls <= num_balls){
+                    matrix[i][j] = "&#x26BD;";
+                //    alert("ONE");
+                } else {
+                    matrix[i][j] = "&#x2800";
+                    //alert("ZERO");
+                }
+            }
+        }
+    }
+
+
+    function makeTable(myArray) {
+        var result = "<table border=0>";
+        for(var i=0; i<myArray.length; i++) {
+            result += "<tr>";
+            for(var j=0; j<myArray[i].length; j++){
+                result += "<td>"+myArray[myArray.length-i-1][j]+"</td>";
+            }
+        result += "</tr>";
+        }
+
+    result += "</table>";
+    return result;
+    }
+
+
+
+
+
+</script>
+
+{% endblock %}

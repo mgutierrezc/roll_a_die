@@ -1,0 +1,47 @@
+{% extends "die_rolling/Page.html" %}
+{% load otree %}
+{% load staticfiles %}
+
+{% block styles %}
+
+    <style>
+
+    .cover {
+        width: 350px;
+        object-fit: cover;
+        margin-bottom: -7px;
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block title %}
+    Practice question #3
+{% endblock %}
+
+{% block content %}
+<div class="frame">
+<ul>
+    <li>Suppose that you observe the following die roll in a round:</li>
+</ul>
+
+ <table align="center" style="width: auto; margin: auto">
+     <tr><td><div class="frame-vid"><video class="cover"  src="/static/{{ image_path }}" autoplay>
+    </video></div></td></tr>
+</table>
+<br>
+<ul>
+    <li>Suppose also that you report that, in this round, the result of the die roll was 3. How many points do you earn
+        in this round?
+    <center>{% formfield player.q3 %}</center>
+    </li>
+</ul>
+
+</div>
+<br>
+<div align="center" style="width: 90%; text-align: left;  margin: -20px 0px 0px 55px; padding: 0px 0px 0px 0px;">
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>Submit and proceed.</strong></button></center>
+    </div>
+
+{% endblock %}

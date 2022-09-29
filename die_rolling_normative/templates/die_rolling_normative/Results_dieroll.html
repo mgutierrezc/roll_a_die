@@ -1,0 +1,46 @@
+{% load otree %}
+
+{% block styles %}
+
+    <style>
+
+        th {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 0px 20px 5px 0px;
+            text-align: center;
+            vertical-align: center;
+        }
+
+         td {
+            font-size: 20px;
+            font-weight: normal;
+            padding: 0px 10px 5px 10px;
+            vertical-align: center;
+         }
+
+    </style>
+
+{% endblock %}
+
+{% block title %}
+    Rounds 4-6
+{% endblock %}
+
+{% block content %}
+
+<div class="frame">
+    <p>You completed the rounds with your role as Participant A.</p>
+    <p>In the remaining rounds of this task, your role will be Participant B. So, your earnings will
+    be determined by what Participant A reports.</p>
+            <p colspan="5" style="font-weight: normal; text-align: left;"> <strong>Note:</strong>
+                At the end of the experiment, we will randomly determine whether the die-rolling task
+                counts towards your payoff. If that's the case, we will randomly draw one of the rounds
+            and determine your earnings based on that.</p>
+    <div>
+        <center><button type="submit"  class="btn btn-primary btn-tab"><strong>NEXT</strong></button></center>
+    </div>
+
+
+{% endblock %}
+

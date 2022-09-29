@@ -1,0 +1,38 @@
+{{ block title }}
+Results
+{{ endblock }}
+
+{{ block content }}
+
+<p>
+    You gave  correct answers.
+</p>
+
+<table class="table">
+    <tr>
+        <th>question</th>
+        <th>option1</th>
+        <th>option2</th>
+        <th>option3</th>
+        <th>option4</th>
+        <th>option5</th>
+        <th>Your choice</th>
+    </tr>
+    {{ for p in round_players }}
+    <tr>
+        <td>{{ p.question }}</td>
+        <td>{{ p.option1 }}</td>
+        <td>{{ p.option2 }}</td>
+        <td>{{ p.option3 }}</td>
+        <td>{{ p.option4 }}</td>
+        <td>{{ p.option5 }}</td>
+        <td>{{ p.choice }}</td>
+    </tr>
+    {{ endfor }}
+</table>
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+{{ endblock }}

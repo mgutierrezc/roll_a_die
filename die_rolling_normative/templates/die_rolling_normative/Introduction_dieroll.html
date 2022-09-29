@@ -1,0 +1,48 @@
+{{ load otree }}
+
+
+{{ block title }}
+  Instructions
+{{ endblock }}
+
+
+<style>
+    .tab {
+        display: none;
+        margin-bottom: 30px;
+    }
+
+    table td {
+    border: none;
+    }
+</style>
+
+{{ block content }}
+
+    <p>Now, you will take part in the die-rolling task once again for {{ Constants.num_rounds }}
+        {{ if Constants.num_rounds == 1 }} round{{ else }} rounds{{ endif }}.
+        The rules are the same as before:
+        </p>
+    <p> In each round, you will see a random roll of a die on the computer screen.
+        Your task is to report the outcome of the die roll that you saw on the screen.</p>
+    <p>Your payoff will be determined by the result that you report. Specifically, in each round,...</p>
+    <ul>
+        <li style="list-style-type: none;">...you will earn <strong>{{ Constants.lying_reward_die_roll }} if you report a 5</strong>.</li>
+        <li style="list-style-type: none">...you will earn <strong>{{ Constants.no_lying_reward_die_roll }} otherwise</strong>.</li>
+    </ul>
+    <p>We do <strong>not</strong> want your answers in one round
+        to affect your decisions in another.
+        So after the end of the study we will randomly choose one
+        round and use your report in this round to determine your payment for the die-rolling task.
+        If this die-rolling task is chosen for your payment in Part III,
+        your earnings from this task will be added to your earnings from Part I and Part II,
+        and the participation fee.</p>
+
+
+<div>
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>NEXT</strong></button></center>
+</div>
+
+
+{{ endblock }}
+

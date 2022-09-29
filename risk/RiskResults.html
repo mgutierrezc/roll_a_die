@@ -1,0 +1,24 @@
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+<center>
+    <div class="frame" style="width: 90%; padding: 20px 20px 20px 35px; margin: 0px">
+<p style="text-align: justify; font-weight: normal; margin-right: 20px; font-size: 18px">
+    You completed the investment tasks.</p><br>
+        <p style="text-align: justify; font-weight: normal; margin-right: 20px; font-size: 18px">
+            You chose to invest: {{ player.invested }} points.</p>
+<br>
+<p style="text-align: justify; font-weight: normal; margin-right: 20px; font-size: 18px">
+    You will be paid for one of the tasks. Which task will be paid will be randomly
+determined at the end of the experiment.</p>
+
+</div>
+        <div style="width: 42%; padding: 5px 0px 0px 0px; font-weight: bold; text-align: justify; font-size: 15px; font-style: italic;">
+    <center><button type="submit" class="btn btn-primary btn-large"><strong>Submit and proceed to the next part.</strong></button></center>
+    </div>
+    </center>
+
+{% endblock %}
